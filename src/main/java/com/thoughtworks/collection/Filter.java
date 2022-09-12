@@ -1,9 +1,9 @@
 package com.thoughtworks.collection;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Filter {
 
@@ -14,18 +14,38 @@ public class Filter {
     }
 
     public List<Integer> filterEven() {
-        throw new NotImplementedException();
+        return array.stream().filter(i -> i % 2 == 0).collect(Collectors.toList());
     }
 
     public List<Integer> filterMultipleOfThree() {
-        throw new NotImplementedException();
+        return array.stream().filter(i -> i % 3 == 0).collect(Collectors.toList());
     }
 
     public List<Integer> getCommonElements(List<Integer> firstList, List<Integer> secondList) {
-        throw new NotImplementedException();
+        ArrayList<Integer> resultList = new ArrayList<>();
+        for (int i = 0; i < firstList.size(); i++) {
+            if(secondList.contains(firstList.get(i))){
+                resultList.add(firstList.get(i));
+            }
+        }
+        return resultList;
     }
 
     public List<Integer> getDifferentElements() {
-        throw new NotImplementedException();
+        ArrayList<Integer> resultList = new ArrayList<>();
+//        for (int i = 0; i < array.size()-1; i++) {
+//            if(array.get(i) != array.get(i+1)){
+//                resultList.add(array.get(i));
+//            }
+//        }
+        HashSet<Integer> set = new HashSet<>();
+        for (Integer integer : array) {
+            set.add(integer);
+        }
+        Object[] objects = set.toArray();
+        for (Object object : objects) {
+            resultList.add((Integer) object);
+        }
+        return resultList;
     }
 }
