@@ -38,6 +38,7 @@ public class Filter {
 //                resultList.add(array.get(i));
 //            }
 //        }
+        //emm... 再优化优化
         HashSet<Integer> set = new HashSet<>();
         for (Integer integer : array) {
             set.add(integer);

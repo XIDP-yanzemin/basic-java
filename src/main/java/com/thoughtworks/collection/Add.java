@@ -39,6 +39,7 @@ public class Add {
         ArrayList<Integer> resultList = new ArrayList<>();
         for (Integer i : arrayList) {
             if(i % 2 != 0){
+                // 下面这个 i 尽量不要和  for 里面的 i 同名，会产生误解
                 i = i * 3 + 2;
                 resultList.add(i);
             } else{
@@ -69,27 +70,31 @@ public class Add {
         int length = evenList.size();
         if(length % 2 != 0){
             return evenList.get(length >> 1 + 1);
+            //直接 return 下面就不需要在 else 了
         } else{
             int medianSum = evenList.get(length >> 1) + evenList.get(length >> 1 + 1);
+            // 这为什么会有警告呢？
             return medianSum / 2;
         }
     }
 
     public double getAverageOfEven(List<Integer> arrayList) {
         var sum = 0;
-        var num = 0;
+        var num = 0; // num 是否有必要 for 里面++
         for (Integer i : arrayList) {
             if(i % 2 == 0){
                 sum += i;
                 num += 1;
             }
         }
+        //同样的警告
         return sum / num;
     }
 
     public boolean isIncludedInEvenIndex(List<Integer> arrayList, Integer specialElment) {
         ArrayList<Integer> evenList = new ArrayList<>();
         for (Integer i : arrayList) {
+            //是不是 直接判断元素是不是等于 specialElement 就可以了。
             if(i % 2 == 0){
                 evenList.add(i);
             }
@@ -118,11 +123,13 @@ public class Add {
             }
         }
         Collections.sort(evenList);
+        //警告
         Collections.sort(oddList, Collections.reverseOrder());
         evenList.addAll(oddList);
         return evenList;
     }
 
+    //代码格式化一下
     public List<Integer> getProcessedList(List<Integer> arrayList) {
         ArrayList<Integer> resultList = new ArrayList<>();
         for (int i = 0; i < arrayList.size()-1; i++) {

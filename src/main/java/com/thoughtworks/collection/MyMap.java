@@ -35,6 +35,7 @@ public class MyMap {
             if(i <= 26){
                 resultList.add(letterList.get(i-1));
             }
+            //是不是直接 else 就可以了？
             else if(i > 26){
                 if (i % 26 == 0) {
                     resultList.add(letterList.get(i / 26 - 2) + "z");

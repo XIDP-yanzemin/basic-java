@@ -10,7 +10,7 @@ public class Reduce {
     public Reduce(List<Integer> arrayList) {
         this.arrayList = arrayList;
     }
-
+    //清理警告...
     public int getMaximum() {
         ArrayList<Integer> resultList = new ArrayList<>();
         var maxNum = 0;
@@ -77,6 +77,7 @@ public class Reduce {
     }
 
     public boolean isEqual(List<Integer> arrayList) {
+        //这个地方没必要整一个 result。代码整洁那个练习里面也有一个类似的题目；Guard Clauses（卫语句）的重构手法
         boolean result = true;
         if(arrayList.size() != this.arrayList.size()){
             result = false;
