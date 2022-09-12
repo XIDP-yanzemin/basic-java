@@ -1,7 +1,6 @@
 package com.thoughtworks.collection;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Reduce {
@@ -13,42 +12,104 @@ public class Reduce {
     }
 
     public int getMaximum() {
-        throw new NotImplementedException();
+        ArrayList<Integer> resultList = new ArrayList<>();
+        var maxNum = 0;
+        for (int i = 0; i < arrayList.size() - 1; i++) {
+            if(arrayList.get(i) <= arrayList.get(i + 1)){
+                maxNum = arrayList.get(i + 1);
+            }
+        }
+        return maxNum;
     }
 
     public double getMinimum() {
-        throw new NotImplementedException();
+        ArrayList<Integer> resultList = new ArrayList<>();
+        var minNum = 0;
+        for (int i = 0; i < arrayList.size() - 1; i++) {
+            if(arrayList.get(i) >= arrayList.get(i + 1)){
+                minNum = arrayList.get(i + 1);
+            }
+        }
+        return minNum ;
     }
 
     public double getAverage() {
-        throw new NotImplementedException();
+        var sum = 0;
+        for (Integer i : arrayList) {
+            sum += i;
+        }
+        return sum / (double) arrayList.size();
     }
 
-    public double getMedian() { throw new NotImplementedException(); }
+    public double getMedian() {
+        int arraySize = arrayList.size();
+        if(arraySize % 2 != 0){
+            return arrayList.get((arraySize - 1) / 2);
+        } else {
+            return(double) (arrayList.get(arraySize /2) + arrayList.get(arraySize /2 - 1 )) / 2;
+        }
+    }
 
     public double getOrderedMedian() {
-        throw new NotImplementedException();
+        return getMedian();
     }
 
     public int getFirstEven() {
-        throw new NotImplementedException();
+        Integer firstEven = 0;
+        for (Integer i : arrayList) {
+            if(i % 2 == 0){
+                firstEven = i;
+                break;
+            }
+        }
+        return firstEven;
     }
 
     public int getIndexOfFirstEven() {
-        throw new NotImplementedException();
+        Integer firstEvenIndex = 0;
+        for (int i = 0; i < arrayList.size(); i++) {
+            if(arrayList.get(i) % 2 == 0){
+                firstEvenIndex = i;
+                break;
+            }
+        }
+        return firstEvenIndex;
     }
 
     public boolean isEqual(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        boolean result = true;
+        if(arrayList.size() != this.arrayList.size()){
+            result = false;
+        } else {
+            for (int i = 0; i < arrayList.size(); i++) {
+                if(this.arrayList.get(i) != arrayList.get(i)){
+                    result = false;
+                    break;
+                }
+            }
+        }
+        return result;
     }
 
 
 
     public int getLastOdd() {
-        throw new NotImplementedException();
+        int lastOdd = 0;
+        for (Integer i : arrayList) {
+            if(i % 2 != 0) {
+                lastOdd = i;
+            }
+        }
+        return lastOdd;
     }
 
     public int getIndexOfLastOdd() {
-        throw new NotImplementedException();
+        Integer lastOddIndex = 0;
+        for (int i = 0; i < arrayList.size(); i++) {
+            if(arrayList.get(i) % 2 != 0){
+                lastOddIndex = i;
+            }
+        }
+        return lastOddIndex;
     }
 }
