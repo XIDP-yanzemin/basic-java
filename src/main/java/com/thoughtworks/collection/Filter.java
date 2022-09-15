@@ -1,8 +1,6 @@
 package com.thoughtworks.collection;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Filter {
@@ -32,21 +30,8 @@ public class Filter {
     }
 
     public List<Integer> getDifferentElements() {
-        ArrayList<Integer> resultList = new ArrayList<>();
-//        for (int i = 0; i < array.size()-1; i++) {
-//            if(array.get(i) != array.get(i+1)){
-//                resultList.add(array.get(i));
-//            }
-//        }
-        //emm... 再优化优化
-        HashSet<Integer> set = new HashSet<>();
-        for (Integer integer : array) {
-            set.add(integer);
-        }
-        Object[] objects = set.toArray();
-        for (Object object : objects) {
-            resultList.add((Integer) object);
-        }
-        return resultList;
+        Set<Integer> resultSet = new LinkedHashSet<>();
+        resultSet.addAll(array);
+        return List.copyOf(resultSet);
     }
 }
