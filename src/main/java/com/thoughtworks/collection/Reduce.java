@@ -1,6 +1,5 @@
 package com.thoughtworks.collection;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Reduce {
@@ -10,12 +9,11 @@ public class Reduce {
     public Reduce(List<Integer> arrayList) {
         this.arrayList = arrayList;
     }
-    //清理警告...
+
     public int getMaximum() {
-        ArrayList<Integer> resultList = new ArrayList<>();
         var maxNum = 0;
         for (int i = 0; i < arrayList.size() - 1; i++) {
-            if(arrayList.get(i) <= arrayList.get(i + 1)){
+            if (arrayList.get(i) <= arrayList.get(i + 1)) {
                 maxNum = arrayList.get(i + 1);
             }
         }
@@ -23,14 +21,13 @@ public class Reduce {
     }
 
     public double getMinimum() {
-        ArrayList<Integer> resultList = new ArrayList<>();
         var minNum = 0;
         for (int i = 0; i < arrayList.size() - 1; i++) {
-            if(arrayList.get(i) >= arrayList.get(i + 1)){
+            if (arrayList.get(i) >= arrayList.get(i + 1)) {
                 minNum = arrayList.get(i + 1);
             }
         }
-        return minNum ;
+        return minNum;
     }
 
     public double getAverage() {
@@ -43,10 +40,10 @@ public class Reduce {
 
     public double getMedian() {
         int arraySize = arrayList.size();
-        if(arraySize % 2 != 0){
+        if (arraySize % 2 != 0) {
             return arrayList.get((arraySize - 1) / 2);
         } else {
-            return(double) (arrayList.get(arraySize /2) + arrayList.get(arraySize /2 - 1 )) / 2;
+            return (double) (arrayList.get(arraySize / 2) + arrayList.get(arraySize / 2 - 1)) / 2;
         }
     }
 
@@ -55,9 +52,9 @@ public class Reduce {
     }
 
     public int getFirstEven() {
-        Integer firstEven = 0;
+        int firstEven = 0;
         for (Integer i : arrayList) {
-            if(i % 2 == 0){
+            if (i % 2 == 0) {
                 firstEven = i;
                 break;
             }
@@ -66,9 +63,9 @@ public class Reduce {
     }
 
     public int getIndexOfFirstEven() {
-        Integer firstEvenIndex = 0;
+        int firstEvenIndex = 0;
         for (int i = 0; i < arrayList.size(); i++) {
-            if(arrayList.get(i) % 2 == 0){
+            if (arrayList.get(i) % 2 == 0) {
                 firstEvenIndex = i;
                 break;
             }
@@ -77,27 +74,22 @@ public class Reduce {
     }
 
     public boolean isEqual(List<Integer> arrayList) {
-        //这个地方没必要整一个 result。代码整洁那个练习里面也有一个类似的题目；Guard Clauses（卫语句）的重构手法
-        boolean result = true;
-        if(arrayList.size() != this.arrayList.size()){
-            result = false;
-        } else {
-            for (int i = 0; i < arrayList.size(); i++) {
-                if(this.arrayList.get(i) != arrayList.get(i)){
-                    result = false;
-                    break;
-                }
+        if (arrayList.size() != this.arrayList.size()) {
+            return false;
+        }
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (!this.arrayList.get(i).equals(arrayList.get(i))) {
+                return false;
             }
         }
-        return result;
+        return true;
     }
-
 
 
     public int getLastOdd() {
         int lastOdd = 0;
         for (Integer i : arrayList) {
-            if(i % 2 != 0) {
+            if (i % 2 != 0) {
                 lastOdd = i;
             }
         }
@@ -105,9 +97,9 @@ public class Reduce {
     }
 
     public int getIndexOfLastOdd() {
-        Integer lastOddIndex = 0;
+        int lastOddIndex = 0;
         for (int i = 0; i < arrayList.size(); i++) {
-            if(arrayList.get(i) % 2 != 0){
+            if (arrayList.get(i) % 2 != 0) {
                 lastOddIndex = i;
             }
         }
