@@ -70,7 +70,6 @@ public class Add {
         int length = evenList.size();
         if (length % 2 != 0) {
             return evenList.get(length >> 1 + 1);
-            //直接 return 下面就不需要在 else 了
         }
         float medianSum = evenList.get(length >> 1) + evenList.get(length >> 1 + 1);
         return medianSum / 2;
@@ -89,7 +88,7 @@ public class Add {
         return sum / num;
     }
 
-    public boolean isIncludedInEvenIndex(List<Integer> arrayList, Integer specialElment) {
+    public boolean isIncludedInEvenIndex(List<Integer> arrayList, Integer specialElement) {
         ArrayList<Integer> evenList = new ArrayList<>();
         for (Integer i : arrayList) {
             //是不是 直接判断元素是不是等于 specialElement 就可以了。
@@ -97,7 +96,7 @@ public class Add {
                 evenList.add(i);
             }
         }
-        return evenList.contains(specialElment);
+        return evenList.contains(specialElement);
     }
 
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {
