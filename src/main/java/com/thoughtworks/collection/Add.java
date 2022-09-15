@@ -37,7 +37,7 @@ public class Add {
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {
         ArrayList<Integer> resultList = new ArrayList<>();
-        int processedNum = 0;
+        int processedNum;
         for (Integer i : arrayList) {
             if(i % 2 != 0){
                 processedNum = i * 3 + 2;
