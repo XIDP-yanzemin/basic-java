@@ -74,7 +74,7 @@ public class Add {
         float medianSum = evenList.get(length >> 1) + evenList.get(length >> 1 + 1);
         return medianSum / 2;
 
-}
+    }
 
     public double getAverageOfEven(List<Integer> arrayList) {
         float sum = 0;
@@ -121,12 +121,11 @@ public class Add {
         }
         Collections.sort(evenList);
         //警告
-        Collections.sort(oddList, Collections.reverseOrder());
+        oddList.sort(Collections.reverseOrder());
         evenList.addAll(oddList);
         return evenList;
     }
 
-    //代码格式化一下
     public List<Integer> getProcessedList(List<Integer> arrayList) {
         ArrayList<Integer> resultList = new ArrayList<>();
         for (int i = 0; i < arrayList.size() - 1; i++) {
