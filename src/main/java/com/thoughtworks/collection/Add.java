@@ -37,11 +37,11 @@ public class Add {
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {
         ArrayList<Integer> resultList = new ArrayList<>();
-        int num = 0;
+        int processedNum = 0;
         for (Integer i : arrayList) {
             if(i % 2 != 0){
-                num = i * 3 + 2;
-                resultList.add(num);
+                processedNum = i * 3 + 2;
+                resultList.add(processedNum);
             } else{
                 resultList.add(i);
             }
