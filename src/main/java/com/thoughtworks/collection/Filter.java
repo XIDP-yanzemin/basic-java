@@ -21,17 +21,16 @@ public class Filter {
 
     public List<Integer> getCommonElements(List<Integer> firstList, List<Integer> secondList) {
         ArrayList<Integer> resultList = new ArrayList<>();
-        for (int i = 0; i < firstList.size(); i++) {
-            if(secondList.contains(firstList.get(i))){
-                resultList.add(firstList.get(i));
+        for (Integer integer : firstList) {
+            if (secondList.contains(integer)) {
+                resultList.add(integer);
             }
         }
         return resultList;
     }
 
     public List<Integer> getDifferentElements() {
-        Set<Integer> resultSet = new LinkedHashSet<>();
-        resultSet.addAll(array);
+        Set<Integer> resultSet = new LinkedHashSet<>(array);
         return List.copyOf(resultSet);
     }
 }
