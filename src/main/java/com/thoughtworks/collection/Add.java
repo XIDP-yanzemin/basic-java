@@ -10,7 +10,7 @@ public class Add {
             return getSumOfEvens(rightBorder, leftBorder);
         }
         var sum = 0;
-        while(leftBorder <= rightBorder) {
+        while (leftBorder <= rightBorder) {
             if (leftBorder % 2 == 0) {
                 sum += leftBorder;
             }
@@ -37,11 +37,12 @@ public class Add {
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {
         ArrayList<Integer> resultList = new ArrayList<>();
+        int processedNum;
         for (Integer i : arrayList) {
-            if(i % 2 != 0){
-                i = i * 3 + 2;
-                resultList.add(i);
-            } else{
+            if (i % 2 != 0) {
+                processedNum = i * 3 + 2;
+                resultList.add(processedNum);
+            } else {
                 resultList.add(i);
             }
         }
@@ -51,7 +52,7 @@ public class Add {
     public int getSumOfProcessedOdds(List<Integer> arrayList) {
         var sum = 0;
         for (Integer i : arrayList) {
-            if(i % 2 != 0){
+            if (i % 2 != 0) {
                 i = i * 3 + 5;
                 sum += i;
             }
@@ -62,24 +63,24 @@ public class Add {
     public double getMedianOfEven(List<Integer> arrayList) {
         ArrayList<Integer> evenList = new ArrayList<>();
         for (Integer i : arrayList) {
-            if(i % 2 == 0){
+            if (i % 2 == 0) {
                 evenList.add(i);
             }
         }
         int length = evenList.size();
-        if(length % 2 != 0){
+        if (length % 2 != 0) {
             return evenList.get(length >> 1 + 1);
-        } else{
-            int medianSum = evenList.get(length >> 1) + evenList.get(length >> 1 + 1);
-            return medianSum / 2;
         }
+        float medianSum = evenList.get(length >> 1) + evenList.get(length >> 1 + 1);
+        return medianSum / 2;
+
     }
 
     public double getAverageOfEven(List<Integer> arrayList) {
-        var sum = 0;
-        var num = 0;
+        float sum = 0;
+        var num = 0; // num 是否有必要 for 里面++
         for (Integer i : arrayList) {
-            if(i % 2 == 0){
+            if (i % 2 == 0) {
                 sum += i;
                 num += 1;
             }
@@ -87,20 +88,21 @@ public class Add {
         return sum / num;
     }
 
-    public boolean isIncludedInEvenIndex(List<Integer> arrayList, Integer specialElment) {
+    public boolean isIncludedInEvenIndex(List<Integer> arrayList, Integer specialElement) {
         ArrayList<Integer> evenList = new ArrayList<>();
         for (Integer i : arrayList) {
-            if(i % 2 == 0){
+            //是不是 直接判断元素是不是等于 specialElement 就可以了。
+            if (i % 2 == 0) {
                 evenList.add(i);
             }
         }
-        return evenList.contains(specialElment);
+        return evenList.contains(specialElement);
     }
 
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {
         ArrayList<Integer> evenList = new ArrayList<>();
         for (Integer i : arrayList) {
-            if(i % 2 == 0 && !evenList.contains(i)){
+            if (i % 2 == 0 && !evenList.contains(i)) {
                 evenList.add(i);
             }
         }
@@ -111,23 +113,24 @@ public class Add {
         ArrayList<Integer> evenList = new ArrayList<>();
         ArrayList<Integer> oddList = new ArrayList<>();
         for (Integer i : arrayList) {
-            if(i % 2 == 0){
+            if (i % 2 == 0) {
                 evenList.add(i);
             } else {
                 oddList.add(i);
             }
         }
         Collections.sort(evenList);
-        Collections.sort(oddList, Collections.reverseOrder());
+        //警告
+        oddList.sort(Collections.reverseOrder());
         evenList.addAll(oddList);
         return evenList;
     }
 
     public List<Integer> getProcessedList(List<Integer> arrayList) {
         ArrayList<Integer> resultList = new ArrayList<>();
-        for (int i = 0; i < arrayList.size()-1; i++) {
+        for (int i = 0; i < arrayList.size() - 1; i++) {
             Integer integer1 = arrayList.get(i) * 3;
-            Integer integer2 = arrayList.get(i+1) * 3;
+            Integer integer2 = arrayList.get(i + 1) * 3;
             resultList.add(integer1 + integer2);
         }
         return resultList;
